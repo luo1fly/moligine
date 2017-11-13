@@ -8,7 +8,7 @@ a  waf module for nginx,with a web terminal by flask
 可以用来设置黑白名单（ip，url黑白名单）设置各种防护规则如：SQL注入、XSS、Shell注入，上传特殊文件，cc等
 建议使用时先不开启防护，只记录日志，一段时间以后，对日志进行分析，再开启防护，防止误杀
 #客户端安装,建议使用root用户，否则请sudo 提权
-1，请先安装openresty，我比较懒，直接使用oneinstack一键安装 参照 https://oneinstack.com/
+1，请先安装openresty，我比较懒，直接使用oneinstack一键安装 参照 https://oneinstack.com/  
 2，将 dkjson.lua 上传到 lualib目录下，如果你使用oneinstack默认安装 这个目录在 /usr/local/openresty/lualib/
 3，将 lua.tar.gz 上传到nginx config目录下 请上传到 /usr/local/openresty/nginx/conf
 4，创建waf规则目录 每次Nginx reload，就会在nginx 启动阶段从redis中读取配置文件，并存储到本地目录 mkdir -p /usr/local/openresty/nginx/conf/waf/wafconf/5，创建默认日志目录 mkdir -p /var/log/moligine6，将改目录的属主赋予nginx worker进程用户 chown -R www.www /var/log/moligine7，修改redis连接地址 修改init.lua中  local rediscmd = "redis-cli -h 192.168.1.197 -p 6379 " 修改其中的ip和端口 如果你觉得有安全性问题，可以在安装redis的时候加上口令，并修改这里的连接字符串
